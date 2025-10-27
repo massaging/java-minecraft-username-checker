@@ -8,48 +8,54 @@
 
 ---
 
+## quick start
+
+**install:**
+```bash
+pip install colorama
+```
+
+**run:**
+- just double click `minecraft.py` 
+- or run in terminal: `python minecraft.py`
+
+thats it! the script handles everything else automatically.
+
+---
+
 ## features
 
-✓ checks username availability across 5 different apis for maximum reliability  
-✓ automatic fallback system (mojang api → minecraftuuid → playerdb → ashcon → minetools)  
-✓ rate limit detection with automatic pause and user prompts  
-✓ 4-letter username generator with random and repeater modes  
-✓ saves all available usernames to text file with namemc links  
-✓ color-coded terminal output for easy reading  
-✓ real-time statistics tracking  
+- checks username availability across 5 different apis for maximum reliability  
+- automatic fallback system (mojang api → minecraftuuid → playerdb → ashcon → minetools)  
+- rate limit detection with automatic pause and user prompts  
+- 4-letter username generator with random and repeater modes  
+- saves all available usernames to text file with namemc links  
+- color-coded terminal output for easy reading  
+- real-time statistics tracking  
 
 ---
 
 ## how it works
 
-the checker validates username format (3-16 characters, letters/numbers/underscores only) then queries multiple apis in sequence. if one api fails or gets rate limited, it automatically switches to the next backup api. 
-
-when rate limits are detected, the program pauses and asks if you want to wait 3 minutes or continue anyway.
-
-all available usernames are automatically saved to `available_minecraft.txt` with direct namemc profile links.
+the checker validates username format (3-16 characters, letters/numbers/underscores only) then queries multiple apis in sequence. if one api fails or gets rate limited, it automatically switches to the next backup api. when rate limits are detected, the program pauses and asks if you want to wait 3 minutes or continue anyway. all available usernames are automatically saved to `available_minecraft.txt` with direct namemc profile links.
 
 ---
 
 ## requirements
 
 - python 3.6 or higher
-- colorama library
+- colorama library (install with: `pip install colorama`)
 - internet connection
 
 ---
 
 ## installation
 
-### step 1: install python
+### step 1: install python (if you dont have it)
 
-**windows:**  
-download from [python.org](https://www.python.org/downloads/) and install (make sure to check "add python to path")
+**windows:** download from [python.org](https://www.python.org/downloads/) and install (make sure to check "add python to path")
 
-**mac:**  
-download from [python.org](https://www.python.org/downloads/) or use homebrew:
-```bash
-brew install python
-```
+**mac:** download from [python.org](https://www.python.org/downloads/) or use homebrew: `brew install python`
 
 **linux:**
 ```bash
@@ -66,18 +72,18 @@ click the green "code" button above and select "download zip", then extract it t
 
 or use git:
 ```bash
-git clone https://github.com/yourusername/java-minecraft-username-checker.git
+git clone https://github.com/massaging/java-minecraft-username-checker.git
 cd java-minecraft-username-checker
 ```
 
-### step 3: install required library
+### step 3: install colorama
 
-open terminal or command prompt in the folder where you extracted the files, then run:
+open terminal or command prompt and run:
 ```bash
 pip install colorama
 ```
 
-if that doesn't work try:
+if that doesnt work try:
 ```bash
 pip3 install colorama
 ```
@@ -87,16 +93,20 @@ or on windows:
 python -m pip install colorama
 ```
 
-**note:** the script will automatically try to install colorama if it's missing, but manual installation is recommended.
+**note:** the script will automatically try to install colorama if its missing, but manual installation is faster.
 
 ### step 4: run the script
+
+**easiest way:** just double click `minecraft.py`
+
+**or use terminal:**
 ```bash
-python minecraft_checker.py
+python minecraft.py
 ```
 
-or if that doesn't work:
+or if that doesnt work:
 ```bash
-python3 minecraft_checker.py
+python3 minecraft.py
 ```
 
 ---
@@ -153,11 +163,11 @@ username - https://namemc.com/profile/username
 
 ## tips & tricks
 
-💡 use longer delays (3-4 seconds) when checking large lists  
-💡 the 4l generator can run for hours - watch for rate limits  
-💡 repeater mode has slightly better chances of finding available names  
-💡 if rate limited, wait the full 3 minutes for best results  
-💡 close other programs using the same apis to reduce rate limiting  
+- use longer delays (3-4 seconds) when checking large lists  
+- the 4l generator can run for hours - watch for rate limits  
+- repeater mode has slightly better chances of finding available names  
+- if rate limited, wait the full 3 minutes for best results  
+- close other programs using the same apis to reduce rate limiting  
 
 ---
 
@@ -171,19 +181,22 @@ username - https://namemc.com/profile/username
 - run: `pip install colorama`
 - the script should auto-install it but manual installation is more reliable
 
+**double clicking doesnt work:**
+- make sure python is installed and added to path
+- or open terminal/command prompt and run: `python minecraft.py`
+
 **script closes immediately:**
-- open terminal/command prompt first
-- navigate to the folder: `cd path/to/folder`
-- then run: `python minecraft_checker.py`
+- this is normal after it finishes - it will pause and say "press enter to exit"
+- if it closes right away, open terminal and run it from there to see any error messages
 
 ---
 
 ## notes
 
-📌 checks minecraft java edition only (not bedrock)  
-📌 username format: 3-16 characters, letters/numbers/underscores  
-📌 multiple api system ensures high reliability even if one service is down  
-📌 all usernames are converted to lowercase for consistency  
+- checks minecraft java edition only (not bedrock)  
+- username format: 3-16 characters, letters/numbers/underscores  
+- multiple api system ensures high reliability even if one service is down  
+- all usernames are converted to lowercase for consistency  
 
 ---
 
@@ -203,4 +216,4 @@ free to use, modify, and distribute
 
 found a bug? have a suggestion? open an issue or submit a pull request!
 
-⭐ if you found this tool helpful, consider giving it a star!
+if you found this tool helpful, consider giving it a star!
