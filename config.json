@@ -1,0 +1,11 @@
+{
+  "threads": 10,
+  "debug_mode": false,
+  "enable_notifications": {
+    "discord": true,
+    "telegram": false
+  },
+  "discord_webhook": "discord_webhook_here",
+  "telegram_bot_token": "",
+  "telegram_chat_id": ""
+}
