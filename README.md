@@ -1,102 +1,117 @@
 # minecraft username checker
 
-a multi-threaded username monitor that checks mojang + backup apis, supports proxies, and can send discord / telegram alerts when a name becomes available.
+a multithreaded python tool for checking minecraft username availability using mojang + ashcon backup apis, optional proxies, and discord / telegram notifications.
 
-## requirements
+## install
 
-- python 3.10+
-- pip
+1. install python 3.10+
+2. download or clone this repo
+3. install dependencies:
+   pip install -r requirements.txt
 
-## dependencies
+## requirements.txt
 
-installed automatically if missing:
+requests  
+cloudscraper  
+colorama  
 
-- requests
-- cloudscraper
-- colorama
+## project layout
+
+data/
+  usernames.txt  
+  proxies.txt  
+  available_minecraft.txt  
+
+checker.py  
+config.json  
+readme.md  
+.gitignore  
 
 ## setup
 
-1. clone or download the project.
-2. make sure these folders/files exist:
-   data/
-     usernames.txt
-     proxies.txt
-     available_minecraft.txt
-   config.json
-   checker.py
+### usernames  
+edit:
+data/usernames.txt  
+add usernames one per line.
 
-3. put the usernames you want to check in:
-   data/usernames.txt
-   one per line.
+### proxies  
+edit:
+data/proxies.txt  
+supported formats:
+ip:port  
+ip:port:user:pass  
 
-4. put proxies in:
-   data/proxies.txt
-   formats supported:
-   ip:port
-   ip:port:user:pass
+### config  
+edit:
+config.json  
+{
+  "threads": 20,
+  "debug_mode": false,
+  "enable_notifications": {
+    "discord": false,
+    "telegram": false
+  },
+  "discord_webhook": "",
+  "telegram_bot_token": "",
+  "telegram_chat_id": ""
+}
 
-5. edit config.json:
-   {
-     "threads": 20,
-     "debug_mode": false,
-     "enable_notifications": {
-       "discord": false,
-       "telegram": false
-     },
-     "discord_webhook": "",
-     "telegram_bot_token": "",
-     "telegram_chat_id": ""
-   }
+## .gitignore (what it does)
 
-## installation
+.gitignore tells git which files to ignore so they don’t upload to github.  
+this keeps your repo clean and prevents leaking things like proxies or cached data.
 
-windows:
-py -m pip install -r requirements.txt
-
-linux / mac:
-python3 -m pip install -r requirements.txt
-
-you can create a requirements.txt:
-requests
-cloudscraper
-colorama
+current .gitignore:
+__pycache__/  
+*.pyc  
+sent_minecraft.json  
+data/available_minecraft.txt  
 
 ## running
 
 windows:
 py checker.py
 
-linux / mac:
+linux/mac:
 python3 checker.py
 
-when it starts:
-- loads usernames
-- loads proxies
-- waits for you to press enter
-- spins up threads
-- checks mojang → ashcon backup
-- logs available names to:
-  data/available_minecraft.txt
+## behavior
+
+- loads usernames  
+- loads proxies  
+- waits for enter  
+- starts multi-thread checking  
+- verifies via mojang + ashcon backup  
+- saves available names to:
+  data/available_minecraft.txt  
+
+terminal shows:
+checked total  
+available found  
+taken  
+errors  
+ratelimits  
+requests per second  
 
 ## notifications
 
 discord:
-turn on in config.json:
+enable:
 "enable_notifications": { "discord": true }
-set webhook:
-"discord_webhook": ""
+set:
+"discord_webhook": "your webhook"
 
 telegram:
+enable:
 "enable_notifications": { "telegram": true }
 set bot token + chat id.
 
 ## features
 
-- multithreaded checking
-- proxy rotation
-- backup validation api
-- rps counter
-- auto-save available names
-- auto-skip already alerted usernames
-- discord + telegram alerts
+- multithreaded checking  
+- proxy rotation  
+- backup validation api  
+- rps counter  
+- auto-save available names  
+- skip already-notified names  
+- discord + telegram alerts  
