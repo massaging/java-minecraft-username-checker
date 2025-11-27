@@ -2,4 +2,3 @@ __pycache__/
 *.pyc
 sent_minecraft.json
 data/available_minecraft.txt
-data/proxies.txt
